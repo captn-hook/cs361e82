@@ -62,41 +62,15 @@ class Go < Game
   end
 end
 
-class PlayGames
-
-  def initialize(game_number, player_list)
-    @player_list = player_list
-    @game_number = game_number
-  end
-
-  def play()
-    case @game_number
-    when 1
-      poker = Poker.new(@player_list)
-      poker.play()
-      puts poker.get_results()
-    when 2
-      chess = Chess.new(@player_list)
-      chess.play()
-      puts chess.get_results()
-    when 3
-      go = Go.new(@player_list)
-      go.play()
-      puts go.get_results()
-    end
-  end
-end
-
-pg = PlayGames.new(1, ["alice", "bob", "chris", "dave"])
-pg.play()
+poker = Poker.new(["alice", "bob", "chris", "dave"])
+poker.play()
 
 puts
 
-pg = PlayGames.new(2, ["alice", "bob"])
-pg.play()
+chess = Chess.new(["alice", "bob"])
+chess.play()
 
 puts
 
-pg = PlayGames.new(3, ["alice", "bob"])
-pg.play()
-
+go = Go.new(["alice", "bob"])
+go.play()
